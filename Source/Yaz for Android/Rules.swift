@@ -230,6 +230,77 @@ public class DiceSet {
 
 public class Rules {
 
+	let fullHouseValue = 25
+	let smallStraightValue = 30
+	let largeStraightValue = 40
+	let yazValue = 50
+	let upperBonusValue = 35
+
+	// Ones
+	func IsOnes(const Dice: DiceSet) -> Boolean {
+		var r = false
+
+		if Dice.HowManyOnes() > 0 {
+			r = true
+		}
+
+		return r
+	}
+
+	// Twos
+	func IsTwos(const Dice: DiceSet) -> Boolean {
+		var r = false
+
+		if Dice.HowManyTwos() > 0 {
+			r = true
+		}
+
+		return r
+	}
+
+	// Threes
+	func IsThrees(const Dice: DiceSet) -> Boolean {
+		var r = false
+
+		if Dice.HowManyThrees() > 0 {
+			r = true
+		}
+
+		return r
+	}
+
+	// Fours
+	func IsFours(const Dice: DiceSet) -> Boolean {
+		var r = false
+
+		if Dice.HowManyFours() > 0 {
+			r = true
+		}
+
+		return r
+	}
+
+	// Fives
+	func IsFives(const Dice: DiceSet) -> Boolean {
+		var r = false
+
+		if Dice.HowManyFives() > 0 {
+			r = true
+		}
+
+		return r
+	}
+
+	// Sixes
+	func IsSixes(const Dice: DiceSet) -> Boolean {
+		var r = false
+
+		if Dice.HowManySixes() > 0 {
+			r = true
+		}
+
+		return r
+	}
 
 	// Small Straight
 	func IsSmallStraight(const Dice: DiceSet) -> Boolean {
@@ -335,12 +406,97 @@ public class Rules {
 		return r
 	}
 
-	// Get Chance total
-	func GetChanceTotal(const Dice: DiceSet) -> Int {
+	// Calculate Chance
+	func CalcChance(const Dice: DiceSet) -> Int {
 
 		var r = Dice.Value1 + Dice.Value2 + Dice.Value3 + Dice.Value4 + Dice.Value5 + Dice.Value6
 
 		return r
 
 	}
+
+	// Calculate Ones
+	func CalcOnes(const Dice: DiceSet) -> Int {
+		var r = 0
+
+		if Dice.Value1 == 1 {r = r + 1}
+		if Dice.Value2 == 1 {r = r + 1}
+		if Dice.Value3 == 1 {r = r + 1}
+		if Dice.Value4 == 1 {r = r + 1}
+		if Dice.Value5 == 1 {r = r + 1}
+		if Dice.Value6 == 1 {r = r + 1}
+
+		return r
+	}
+
+	// Calculate Twos
+	func CalcTwos(const Dice: DiceSet) -> Int {
+		var r = 0
+
+		if Dice.Value1 == 2 {r = r + 2}
+		if Dice.Value2 == 2 {r = r + 2}
+		if Dice.Value3 == 2 {r = r + 2}
+		if Dice.Value4 == 2 {r = r + 2}
+		if Dice.Value5 == 2 {r = r + 2}
+		if Dice.Value6 == 2 {r = r + 2}
+
+		return r
+	}
+
+	// Calculate Threes
+	func CalcThrees(const Dice: DiceSet) -> Int {
+		var r = 0
+
+		if Dice.Value1 == 3 {r = r + 3}
+		if Dice.Value2 == 3 {r = r + 3}
+		if Dice.Value3 == 3 {r = r + 3}
+		if Dice.Value4 == 3 {r = r + 3}
+		if Dice.Value5 == 3 {r = r + 3}
+		if Dice.Value6 == 3 {r = r + 3}
+
+		return r
+	}
+
+	// Calculate Fours
+	func CalcFours(const Dice: DiceSet) -> Int {
+		var r = 0
+
+		if Dice.Value1 == 4 {r = r + 4}
+		if Dice.Value2 == 4 {r = r + 4}
+		if Dice.Value3 == 4 {r = r + 4}
+		if Dice.Value4 == 4 {r = r + 4}
+		if Dice.Value5 == 4 {r = r + 4}
+		if Dice.Value6 == 4 {r = r + 4}
+
+		return r
+	}
+
+	// Calculate Fives
+	func CalcFives(const Dice: DiceSet) -> Int {
+		var r = 0
+
+		if Dice.Value1 == 5 {r = r + 5}
+		if Dice.Value2 == 5 {r = r + 5}
+		if Dice.Value3 == 5 {r = r + 5}
+		if Dice.Value4 == 5 {r = r + 5}
+		if Dice.Value5 == 5 {r = r + 5}
+		if Dice.Value6 == 5 {r = r + 5}
+
+		return r
+	}
+
+	// Calculate Sixes
+	func CalcSixes(const Dice: DiceSet) -> Int {
+		var r = 0
+
+		if Dice.Value1 == 6 {r = r + 6}
+		if Dice.Value2 == 6 {r = r + 6}
+		if Dice.Value3 == 6 {r = r + 6}
+		if Dice.Value4 == 6 {r = r + 6}
+		if Dice.Value5 == 6 {r = r + 6}
+		if Dice.Value6 == 6 {r = r + 6}
+
+		return r
+	}
+
 }
