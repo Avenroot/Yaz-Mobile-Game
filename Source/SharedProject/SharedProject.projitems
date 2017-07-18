@@ -11,5 +11,36 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Rules.swift" />
     <Compile Include="$(MSBuildThisFileDirectory)Scoreboard.swift" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice1.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice1.jpg" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice2.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice2.jpg" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice3.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice3.jpg" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice4.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice4.jpg" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice5.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice5.jpg" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice6.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\2Dice6.jpg" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE1.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE1.JPG" />
+    <None Include="$(MSBuildThisFileDirectory)Images\dice1.png" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE2.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE2.JPG" />
+    <None Include="$(MSBuildThisFileDirectory)Images\dice2.png" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE3.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE3.JPG" />
+    <None Include="$(MSBuildThisFileDirectory)Images\dice3.png" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE4.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE4.JPG" />
+    <None Include="$(MSBuildThisFileDirectory)Images\dice4.png" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE5.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE5.JPG" />
+    <None Include="$(MSBuildThisFileDirectory)Images\dice5.png" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE6.bmp" />
+    <None Include="$(MSBuildThisFileDirectory)Images\DICE6.JPG" />
+    <None Include="$(MSBuildThisFileDirectory)Images\dice6.png" />
   </ItemGroup>
+  <ItemGroup />
 </Project>
