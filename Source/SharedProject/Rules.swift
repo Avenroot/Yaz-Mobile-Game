@@ -5,23 +5,22 @@ public class DiceResults {
 	var Value2 = 0
 }
 
+// 5 dice are returned in DiceSet
 public class DiceSet {
-	var Value1 = 0
-	var Value2 = 0
-	var Value3 = 0
-	var Value4 = 0
-	var Value5 = 0
-	var Value6 = 0
+	var dice1Value = 0
+	var dice2Value = 0
+	var dice3Value = 0
+	var dice4Value = 0
+	var dice5Value = 0
 
 	func HowManyOnes() -> Int {
 		var r = 0
 
-		if Value1 == 1 {r = r+1}
-		if Value2 == 1 {r = r+1}
-		if Value3 == 1 {r = r+1}
-		if Value4 == 1 {r = r+1}
-		if Value5 == 1 {r = r+1}
-		if Value6 == 1 {r = r+1}
+		if dice1Value == 1 {r = r+1}
+		if dice2Value == 1 {r = r+1}
+		if dice3Value == 1 {r = r+1}
+		if dice4Value == 1 {r = r+1}
+		if dice5Value == 1 {r = r+1}
 
 		return r
 	}
@@ -29,12 +28,11 @@ public class DiceSet {
 	func HowManyTwos() -> Int {
 		var r = 0
 
-		if Value1 == 2 {r = r+1}
-		if Value2 == 2 {r = r+1}
-		if Value3 == 2 {r = r+1}
-		if Value4 == 2 {r = r+1}
-		if Value5 == 2 {r = r+1}
-		if Value6 == 2 {r = r+1}
+		if dice1Value == 2 {r = r+1}
+		if dice2Value == 2 {r = r+1}
+		if dice3Value == 2 {r = r+1}
+		if dice4Value == 2 {r = r+1}
+		if dice5Value == 2 {r = r+1}
 
 		return r
 	}
@@ -42,12 +40,11 @@ public class DiceSet {
 	func HowManyThrees() -> Int {
 		var r = 0
 
-		if Value1 == 3 {r = r+1}
-		if Value2 == 3 {r = r+1}
-		if Value3 == 3 {r = r+1}
-		if Value4 == 3 {r = r+1}
-		if Value5 == 3 {r = r+1}
-		if Value6 == 3 {r = r+1}
+		if dice1Value == 3 {r = r+1}
+		if dice2Value == 3 {r = r+1}
+		if dice3Value == 3 {r = r+1}
+		if dice4Value == 3 {r = r+1}
+		if dice5Value == 3 {r = r+1}
 
 		return r
 	}
@@ -55,12 +52,11 @@ public class DiceSet {
 	func HowManyFours() -> Int {
 		var r = 0
 
-		if Value1 == 4 {r = r+1}
-		if Value2 == 4 {r = r+1}
-		if Value3 == 4 {r = r+1}
-		if Value4 == 4 {r = r+1}
-		if Value5 == 4 {r = r+1}
-		if Value6 == 4 {r = r+1}
+		if dice1Value == 4 {r = r+1}
+		if dice2Value == 4 {r = r+1}
+		if dice3Value == 4 {r = r+1}
+		if dice4Value == 4 {r = r+1}
+		if dice5Value == 4 {r = r+1}
 
 		return r
 	}
@@ -68,12 +64,11 @@ public class DiceSet {
 	func HowManyFives() -> Int {
 		var r = 0
 
-		if Value1 == 5 {r = r+1}
-		if Value2 == 5 {r = r+1}
-		if Value3 == 5 {r = r+1}
-		if Value4 == 5 {r = r+1}
-		if Value5 == 5 {r = r+1}
-		if Value6 == 5 {r = r+1}
+		if dice1Value == 5 {r = r+1}
+		if dice2Value == 5 {r = r+1}
+		if dice3Value == 5 {r = r+1}
+		if dice4Value == 5 {r = r+1}
+		if dice5Value == 5 {r = r+1}
 
 		return r
 	}
@@ -81,12 +76,11 @@ public class DiceSet {
 	func HowManySixes() -> Int {
 		var r = 0
 
-		if Value1 == 6 {r = r+1}
-		if Value2 == 6 {r = r+1}
-		if Value3 == 6 {r = r+1}
-		if Value4 == 6 {r = r+1}
-		if Value5 == 6 {r = r+1}
-		if Value6 == 6 {r = r+1}
+		if dice1Value == 6 {r = r+1}
+		if dice2Value == 6 {r = r+1}
+		if dice3Value == 6 {r = r+1}
+		if dice4Value == 6 {r = r+1}
+		if dice5Value == 6 {r = r+1}
 
 		return r
 	}
@@ -270,7 +264,7 @@ public class Rules {
 	}
 
 	// Fours
-	func IsFours(Dice: DiceSet) -> Boolean {
+	func IsFours(let _ Dice: DiceSet) -> Boolean {
 		var r = false
 
 		if Dice.HowManyFours() > 0 {
@@ -281,7 +275,7 @@ public class Rules {
 	}
 
 	// Fives
-	func IsFives(Dice: DiceSet) -> Boolean {
+	func IsFives(let _ Dice: DiceSet) -> Boolean {
 		var r = false
 
 		if Dice.HowManyFives() > 0 {
@@ -410,7 +404,7 @@ public class Rules {
 	func calcAllValues(Dice: DiceSet) -> Int {
 		var r = 0
 
-		r = Dice.Value1 + Dice.Value2 + Dice.Value3 + Dice.Value4 + Dice.Value5 + Dice.Value6
+		r = Dice.dice1Value + Dice.dice2Value + Dice.dice3Value + Dice.dice4Value + Dice.dice5Value
 
 		return r
 	}
@@ -419,12 +413,11 @@ public class Rules {
 	func CalcOnes(Dice: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.Value1 == 1 {r = r + 1}
-		if Dice.Value2 == 1 {r = r + 1}
-		if Dice.Value3 == 1 {r = r + 1}
-		if Dice.Value4 == 1 {r = r + 1}
-		if Dice.Value5 == 1 {r = r + 1}
-		if Dice.Value6 == 1 {r = r + 1}
+		if Dice.dice1Value == 1 {r = r + 1}
+		if Dice.dice2Value == 1 {r = r + 1}
+		if Dice.dice3Value == 1 {r = r + 1}
+		if Dice.dice4Value == 1 {r = r + 1}
+		if Dice.dice5Value == 1 {r = r + 1}
 
 		return r
 	}
@@ -433,12 +426,11 @@ public class Rules {
 	func CalcTwos(Dice: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.Value1 == 2 {r = r + 2}
-		if Dice.Value2 == 2 {r = r + 2}
-		if Dice.Value3 == 2 {r = r + 2}
-		if Dice.Value4 == 2 {r = r + 2}
-		if Dice.Value5 == 2 {r = r + 2}
-		if Dice.Value6 == 2 {r = r + 2}
+		if Dice.dice1Value == 2 {r = r + 2}
+		if Dice.dice2Value == 2 {r = r + 2}
+		if Dice.dice3Value == 2 {r = r + 2}
+		if Dice.dice4Value == 2 {r = r + 2}
+		if Dice.dice5Value == 2 {r = r + 2}
 
 		return r
 	}
@@ -447,12 +439,11 @@ public class Rules {
 	func CalcThrees(Dice: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.Value1 == 3 {r = r + 3}
-		if Dice.Value2 == 3 {r = r + 3}
-		if Dice.Value3 == 3 {r = r + 3}
-		if Dice.Value4 == 3 {r = r + 3}
-		if Dice.Value5 == 3 {r = r + 3}
-		if Dice.Value6 == 3 {r = r + 3}
+		if Dice.dice1Value == 3 {r = r + 3}
+		if Dice.dice2Value == 3 {r = r + 3}
+		if Dice.dice3Value == 3 {r = r + 3}
+		if Dice.dice4Value == 3 {r = r + 3}
+		if Dice.dice5Value == 3 {r = r + 3}
 
 		return r
 	}
@@ -461,12 +452,11 @@ public class Rules {
 	func CalcFours(Dice: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.Value1 == 4 {r = r + 4}
-		if Dice.Value2 == 4 {r = r + 4}
-		if Dice.Value3 == 4 {r = r + 4}
-		if Dice.Value4 == 4 {r = r + 4}
-		if Dice.Value5 == 4 {r = r + 4}
-		if Dice.Value6 == 4 {r = r + 4}
+		if Dice.dice1Value == 4 {r = r + 4}
+		if Dice.dice2Value == 4 {r = r + 4}
+		if Dice.dice3Value == 4 {r = r + 4}
+		if Dice.dice4Value == 4 {r = r + 4}
+		if Dice.dice5Value == 4 {r = r + 4}
 
 		return r
 	}
@@ -475,12 +465,11 @@ public class Rules {
 	func CalcFives(Dice: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.Value1 == 5 {r = r + 5}
-		if Dice.Value2 == 5 {r = r + 5}
-		if Dice.Value3 == 5 {r = r + 5}
-		if Dice.Value4 == 5 {r = r + 5}
-		if Dice.Value5 == 5 {r = r + 5}
-		if Dice.Value6 == 5 {r = r + 5}
+		if Dice.dice1Value == 5 {r = r + 5}
+		if Dice.dice2Value == 5 {r = r + 5}
+		if Dice.dice3Value == 5 {r = r + 5}
+		if Dice.dice4Value == 5 {r = r + 5}
+		if Dice.dice5Value == 5 {r = r + 5}
 
 		return r
 	}
@@ -489,12 +478,11 @@ public class Rules {
 	func CalcSixes(Dice: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.Value1 == 6 {r = r + 6}
-		if Dice.Value2 == 6 {r = r + 6}
-		if Dice.Value3 == 6 {r = r + 6}
-		if Dice.Value4 == 6 {r = r + 6}
-		if Dice.Value5 == 6 {r = r + 6}
-		if Dice.Value6 == 6 {r = r + 6}
+		if Dice.dice1Value == 6 {r = r + 6}
+		if Dice.dice2Value == 6 {r = r + 6}
+		if Dice.dice3Value == 6 {r = r + 6}
+		if Dice.dice4Value == 6 {r = r + 6}
+		if Dice.dice5Value == 6 {r = r + 6}
 
 		return r
 	}
