@@ -52,6 +52,7 @@
     <Folder Include="res\" />
     <Folder Include="res\values\" />
     <Folder Include="res\layout\" />
+    <Folder Include="res\drawable" />
   </ItemGroup>
   <ItemGroup>
     <None Include="res\values\strings.android-xml">
@@ -91,6 +92,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.swift" />
+    <Compile Include="UIDiceComponent.swift" />
+    <None Include="..\SharedProject\Images\dice1.JPG" />
+    <None Include="res\drawable\dice1.jpg" />
+    <None Include="res\drawable\dice2.jpg" />
+    <None Include="res\drawable\dice3.jpg" />
+    <None Include="res\drawable\dice4.jpg" />
+    <None Include="res\drawable\dice5.jpg" />
+    <None Include="res\drawable\dice6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Cooper.Android.targets" />
   <Import Project="..\SharedProject\SharedProject.projitems" Label="Shared" />

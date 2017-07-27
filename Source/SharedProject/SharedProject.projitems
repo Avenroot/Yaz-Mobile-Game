@@ -42,5 +42,4 @@
     <None Include="$(MSBuildThisFileDirectory)Images\DICE6.JPG" />
     <None Include="$(MSBuildThisFileDirectory)Images\dice6.png" />
   </ItemGroup>
-  <ItemGroup />
 </Project>
