@@ -8,8 +8,8 @@
     <AllowLegacyCreate>False</AllowLegacyCreate>
     <AllowLegacyOutParams>False</AllowLegacyOutParams>
     <Name>Yaz (Android)</Name>
-    <RootNamespace>org.me.yazandroid</RootNamespace>
-    <AssemblyName>org.me.YazAndroid</AssemblyName>
+    <RootNamespace>org.fsxp.yazandroid</RootNamespace>
+    <AssemblyName>org.fsxp.YazAndroid</AssemblyName>
     <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
     <DefaultUses>remobjects.elements.rtl</DefaultUses>
   </PropertyGroup>
@@ -50,6 +50,10 @@
   <ItemGroup>
     <Folder Include="Properties\" />
     <Folder Include="res\" />
+    <Folder Include="res\drawable-hdpi\" />
+    <Folder Include="res\drawable-ldpi\" />
+    <Folder Include="res\drawable-mdpi\" />
+    <Folder Include="res\drawable-xhdpi\" />
     <Folder Include="res\values\" />
     <Folder Include="res\layout\" />
     <Folder Include="res\drawable" />
@@ -93,7 +97,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.swift" />
-    <Compile Include="UIDiceComponent.swift" />
+    <Compile Include="yazDice.swift">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="yazTimer.swift">
+      <SubType>Code</SubType>
+    </Compile>
     <None Include="..\SharedProject\Images\dice1.JPG" />
     <None Include="res\drawable\dice1.jpg" />
     <None Include="res\drawable\dice2.jpg" />

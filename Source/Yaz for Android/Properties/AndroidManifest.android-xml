@@ -7,7 +7,7 @@
 		android:label="@string/app_name"
 		android:icon="@drawable/dice1"
 		android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen">
-	<activity android:label="@string/app_name" android:name="org.me.yazandroid.MainActivity">
+	<activity android:label="@string/app_name" android:name="org.fsxp.yazandroid.MainActivity">
 	  <intent-filter>
 		<action android:name="android.intent.action.MAIN" />
 		<category android:name="android.intent.category.LAUNCHER" />
