@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "YazShared", "SharedProject\YazShared.elements", "{44152CE8-84C0-44A1-BC98-DEA59D8847FA}"
+EndProject
+Project("{656346D9-4656-40DA-A068-22D5425D4639}") = "Yaz (Android)", "Yaz for Android\Yaz (Android).elements", "{F732162B-89B7-45FE-89B5-442F503958AE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{44152CE8-84C0-44A1-BC98-DEA59D8847FA} = {44152CE8-84C0-44A1-BC98-DEA59D8847FA}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AnyCPU = Debug|AnyCPU
+		Release|AnyCPU = Release|AnyCPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F732162B-89B7-45FE-89B5-442F503958AE}.Debug|AnyCPU.ActiveCfg = Debug
+		{F732162B-89B7-45FE-89B5-442F503958AE}.Debug|AnyCPU.Build.0 = Debug
+		{F732162B-89B7-45FE-89B5-442F503958AE}.Release|AnyCPU.ActiveCfg = Release
+		{F732162B-89B7-45FE-89B5-442F503958AE}.Release|AnyCPU.Build.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CC6F4C49-15FB-405F-9812-BD3E9DD34613}
+	EndGlobalSection
+EndGlobal
