@@ -103,7 +103,6 @@
     <Compile Include="yazTimer.swift">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="..\SharedProject\Images\dice1.JPG" />
     <None Include="res\drawable\dice1.jpg" />
     <None Include="res\drawable\dice2.jpg" />
     <None Include="res\drawable\dice3.jpg" />
