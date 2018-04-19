@@ -1,240 +1,221 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="horizontal">
-
-    <Button
-        android:id="@+id/btnYaz"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Yaz!: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnLargeStraight"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/btnLargeStraight"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Large Straight: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnSmallStraight"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/btnSmallStraight"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Small Straight: 0"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnFullHouse" />
-
-    <Button
-        android:id="@+id/btnFullHouse"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Full House: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnFourOfKind"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/btnFourOfKind"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="4 of Kind: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnThreeOfKind"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/btnThreeOfKind"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:layout_marginRight="16dp"
-        android:layout_marginTop="16dp"
-        android:text="3 of Kind: 0"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnSixes"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Sixes: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnFives"
-        app:layout_constraintRight_toLeftOf="@+id/btnYaz"
-        android:layout_marginRight="24dp" />
-
-    <Button
-        android:id="@+id/btnFives"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Fives: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnFours"
-        app:layout_constraintRight_toLeftOf="@+id/btnLargeStraight"
-        android:layout_marginRight="24dp" />
-
-    <Button
-        android:id="@+id/btnFours"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Fours: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnThrees"
-        app:layout_constraintRight_toLeftOf="@+id/btnSmallStraight"
-        android:layout_marginRight="24dp" />
-
-    <Button
-        android:id="@+id/btnThrees"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Threes: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnTwos"
-        app:layout_constraintRight_toLeftOf="@+id/btnFullHouse"
-        android:layout_marginRight="24dp" />
-
-    <Button
-        android:id="@+id/btnTwos"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Twos: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnOnes"
-        app:layout_constraintRight_toLeftOf="@+id/btnFourOfKind"
-        android:layout_marginRight="24dp" />
-
-    <Button
-        android:id="@+id/btnChance"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Chance: 0"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/btnYaz"
-        android:layout_marginRight="16dp"
-        app:layout_constraintRight_toRightOf="parent" />
-
-    <Button
-        android:id="@+id/btnOnes"
-        android:layout_width="107dp"
-        android:layout_height="50dp"
-        android:text="Ones: 0"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp"
-        app:layout_constraintRight_toLeftOf="@+id/btnThreeOfKind"
-        android:layout_marginRight="24dp" />
+    android:layout_height="match_parent" >
 
     <ImageView
         android:id="@+id/ivDiceOne"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/dice1"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginLeft="24dp" />
 
     <ImageView
         android:id="@+id/ivDiceTwo"
+        android:src="@drawable/dice2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/dice2"
-        android:layout_marginTop="21dp"
-        app:layout_constraintTop_toBottomOf="@+id/ivDiceOne"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_below = "@+id/ivDiceOne"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/ivDiceOne" />
 
     <ImageView
         android:id="@+id/ivDiceThree"
+        android:src="@drawable/dice3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/dice3"
-        android:layout_marginTop="21dp"
-        app:layout_constraintTop_toBottomOf="@+id/ivDiceTwo"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_below = "@+id/ivDiceTwo"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/ivDiceOne" />
 
     <ImageView
         android:id="@+id/ivDiceFour"
+        android:src="@drawable/dice4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/dice4"
-        android:layout_marginTop="21dp"
-        app:layout_constraintTop_toBottomOf="@+id/ivDiceThree"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_below = "@+id/ivDiceThree"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/ivDiceOne" />
 
     <ImageView
         android:id="@+id/ivDiceFive"
+        android:src="@drawable/dice5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/dice5"
-        android:layout_marginTop="21dp"
-        app:layout_constraintTop_toBottomOf="@+id/ivDiceFour"
-        android:layout_marginLeft="24dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_below = "@+id/ivDiceFour"
+        android:layout_marginTop="24dp"
+        android:layout_alignLeft="@+id/ivDiceOne" />
 
     <Button
         android:id="@+id/btnRollDice"
         android:layout_width="107dp"
         android:layout_height="50dp"
+        android:layout_below="@+id/ivDiceFive"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="42dp"
-        android:text="Roll Dice"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ivDiceFive" />
+        android:text="Roll Dice" />
+
+    <Button
+        android:id="@+id/btnOnes"
+        android:text="Ones: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_toLeftOf="@+id/btnThreeOfKind"
+        android:layout_marginRight="24dp"
+        android:layout_marginTop="16dp"  />
+
+    <Button
+        android:id="@+id/btnTwos"
+        android:text="Twos: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below ="@+id/btnOnes"
+        android:layout_toLeftOf="@+id/btnFourOfKind"
+        android:layout_marginRight="24dp" />
+
+    <Button
+        android:id="@+id/btnThrees"
+        android:text="Threes: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below ="@+id/btnTwos"
+        android:layout_toLeftOf="@+id/btnFullHouse"
+        android:layout_marginRight="24dp" />
+
+    <Button
+        android:id="@+id/btnFours"
+        android:text="Fours: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below ="@+id/btnThrees"
+        android:layout_toLeftOf="@+id/btnSmallStraight"
+        android:layout_marginRight="24dp" />
+
+    <Button
+        android:id="@+id/btnFives"
+        android:text="Fives: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below ="@+id/btnFours"
+        android:layout_toLeftOf="@+id/btnLargeStraight"
+        android:layout_marginRight="24dp" />
+
+    <Button
+        android:id="@+id/btnSixes"
+        android:text="Sixes: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below ="@+id/btnFives"
+        android:layout_toLeftOf="@+id/btnYaz"
+        android:layout_marginRight="24dp" />
+
+    <Button
+        android:id="@+id/btnThreeOfKind"
+        android:text="3 of Kind: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/btnFourOfKind"
+        android:text="4 of Kind: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below = "@+id/btnThreeOfKind"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/btnFullHouse"
+        android:text="Full House: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below = "@+id/btnFourOfKind"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/btnSmallStraight"
+        android:text="Small Straight: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below = "@+id/btnFullHouse"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/btnLargeStraight"
+        android:text="Large Straight: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below = "@+id/btnSmallStraight"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/btnYaz"
+        android:text="Yaz!: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below = "@+id/btnLargeStraight"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
+    <Button
+        android:id="@+id/btnChance"
+        android:text="Chance: 0"
+        android:layout_width="107dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:layout_below = "@+id/btnYaz"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
 
     <TextView
         android:id="@+id/tvUpperTotal"
+        android:text="Upper Total: 0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="16dp"
-        android:text="Upper Total: 0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="30dp"
-        app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="16dp"
-        app:layout_constraintVertical_bias="1.0" />
+        android:layout_alignParentBottom="true"/>
 
     <TextView
         android:id="@+id/tvLowerTotal"
+        android:text="Lower Total: 0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Lower Total: 0"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="1.0"
-        app:layout_constraintLeft_toRightOf="@+id/tvUpperTotal"
         android:layout_marginLeft="58dp"
-        app:layout_constraintRight_toLeftOf="@+id/tvGrandTotal"
-        android:layout_marginRight="8dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        android:layout_marginBottom="30dp"
+        android:layout_toRightOf="@+id/tvUpperTotal"
+        android:layout_alignParentBottom="true"/>
 
     <TextView
         android:id="@+id/tvGrandTotal"
+        android:text="Grand Total: 0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="16dp"
-        android:text="Grand Total: 0"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_toRightOf="@+id/tvLowerTotal"
+        android:layout_marginLeft="16dp"
         android:layout_marginBottom="30dp"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="8dp"
-        app:layout_constraintVertical_bias="1.0" />
-</android.support.constraint.ConstraintLayout>
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"/>
+
+</RelativeLayout>
