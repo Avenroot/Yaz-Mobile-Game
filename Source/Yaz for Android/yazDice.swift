@@ -5,7 +5,7 @@
     let ytimer = yazTimer(3 * 1000, 100)
 
     func Roll() {
-       
+
         ytimer.onTickCallback = timerOnTickHandler  // would be nice to put this in an init{}
         ytimer.start();
 
@@ -14,50 +14,26 @@
     func timerOnTickHandler() {
 
         if !locked {
-
-            let rand = Random()       
-            var r = rand.NextInt(6)   
-            value = r    
-            
-            switch r {
-
-                case 0: 
-                    let drawableID = Context.getResources().getIdentifier("dice1.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-                
-
-                case 1: 
-                    let drawableID = Context.getResources().getIdentifier("dice2.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-                
-
-                case 2: 
-                    let drawableID = Context.getResources().getIdentifier("dice3.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-                
-
-                case 3: 
-                    let drawableID = Context.getResources().getIdentifier("dice4.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-                
-
-                case 4: 
-                    let drawableID = Context.getResources().getIdentifier("dice5.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-                
-
-                case 5: 
-                    let drawableID = Context.getResources().getIdentifier("dice6.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-
-                default:  
-                    let drawableID = Context.getResources().getIdentifier("dice1.jpg", "drawable", Context.getPackageName())
-                    self.setImageResource(drawableID)
-                
-            }
-
+            let rand = Random()
+            var r = rand.NextInt(6)
+            value = r
+            var dice = diceNumberImages()
+            let drawableID = Context
+            .getResources()
+            .getIdentifier(dice[r], "drawable", Context.getPackageName())
+            self.setImageResource(drawableID)
         }
 
     }
 
+    private func diceNumberImages() -> [Integer: String]{
+        return [
+        1: "dice1.jpg",
+        2: "dice2.jpg",
+        3: "dice3.jpg",
+        4: "dice4.jpg",
+        5: "dice5.jpg",
+        6: "dice6.jpg"
+        ]
+    }
 }
