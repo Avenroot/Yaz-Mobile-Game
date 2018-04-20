@@ -2,7 +2,7 @@
 
     var locked = false
     var value = 0
-    let ytimer = yazTimer(3 * 1000, 100)
+    let ytimer = yazTimer(1 * 1000, 100)
 
     func Roll() {
 
@@ -28,12 +28,13 @@
 
     private func diceNumberImages() -> [Integer: String]{
         return [
-        1: "dice1.jpg",
-        2: "dice2.jpg",
-        3: "dice3.jpg",
-        4: "dice4.jpg",
-        5: "dice5.jpg",
-        6: "dice6.jpg"
+        0: "dice1",
+        1: "dice1",
+        2: "dice2",
+        3: "dice3",
+        4: "dice4",
+        5: "dice5",
+        6: "dice6"
         ]
     }
 }

@@ -82,7 +82,9 @@
     <AndroidManifest Include="Properties\AndroidManifest.android-xml" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="android" />
+    <Reference Include="android">
+      <Private>True</Private>
+    </Reference>
     <Reference Include="swift">
       <Private>True</Private>
       <HintPath>\Applications\Fire.app\Contents\Resources\References\Cooper\swift.jar</HintPath>
@@ -93,16 +95,11 @@
     <Reference Include="elements">
       <Private>True</Private>
     </Reference>
-    <GradleReference Include="com.android.support.constraint:constraint-layout:1.0.2" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainActivity.swift" />
-    <Compile Include="yazDice.swift">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="yazTimer.swift">
-      <SubType>Code</SubType>
-    </Compile>
+    <Compile Include="yazDice.swift"></Compile>
+    <Compile Include="yazTimer.swift"></Compile>
     <None Include="res\drawable\dice1.jpg" />
     <None Include="res\drawable\dice2.jpg" />
     <None Include="res\drawable\dice3.jpg" />
