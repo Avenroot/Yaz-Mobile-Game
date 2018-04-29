@@ -7,10 +7,10 @@
 	let upperBonusValue = 35
 
 	// Ones
-	func IsOnes(Dice: DiceSet) -> Boolean {
+	func IsOnes(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyOnes() > 0 {
+		if diceSet.HowManyOnes() > 0 {
 			r = true
 		}
 
@@ -18,10 +18,10 @@
 	}
 
 	// Twos
-	func IsTwos(Dice: DiceSet) -> Boolean {
+	func IsTwos(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyTwos() > 0 {
+		if diceSet.HowManyTwos() > 0 {
 			r = true
 		}
 
@@ -29,10 +29,10 @@
 	}
 
 	// Threes
-	func IsThrees(Dice: DiceSet) -> Boolean {
+	func IsThrees(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyThrees() > 0 {
+		if diceSet.HowManyThrees() > 0 {
 			r = true
 		}
 
@@ -40,10 +40,10 @@
 	}
 
 	// Fours
-	func IsFours(let _ Dice: DiceSet) -> Boolean {
+	func IsFours(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyFours() > 0 {
+		if diceSet.HowManyFours() > 0 {
 			r = true
 		}
 
@@ -51,10 +51,10 @@
 	}
 
 	// Fives
-	func IsFives(let _ Dice: DiceSet) -> Boolean {
+	func IsFives(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyFives() > 0 {
+		if diceSet.HowManyFives() > 0 {
 			r = true
 		}
 
@@ -62,10 +62,10 @@
 	}
 
 	// Sixes
-	func IsSixes(Dice: DiceSet) -> Boolean {
+	func IsSixes(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManySixes() > 0 {
+		if diceSet.HowManySixes() > 0 {
 			r = true
 		}
 
@@ -73,26 +73,26 @@
 	}
 
 	// Small Straight
-	func IsSmallStraight(Dice: DiceSet) -> Boolean {
+	func IsSmallStraight(diceSet: DiceSet) -> Boolean {
 		var r = false
 
 		// Dice 1-4
-		if (Dice.HowManyOnes() == 1) && (Dice.HowManyTwos() == 1) && (Dice.HowManyThrees() == 1) &&
-			(Dice.HowManyFours() == 1) {
+		if (diceSet.HowManyOnes() == 1) && (diceSet.HowManyTwos() == 1) && (diceSet.HowManyThrees() == 1) &&
+			(diceSet.HowManyFours() == 1) {
 
 				r = true
 		}
 
 		// Dice 2-5
-		if (Dice.HowManyTwos() == 1) && (Dice.HowManyThrees() == 1) && (Dice.HowManyFours() == 1) &&
-			(Dice.HowManyFives() == 1) {
+		if (diceSet.HowManyTwos() == 1) && (diceSet.HowManyThrees() == 1) && (diceSet.HowManyFours() == 1) &&
+			(diceSet.HowManyFives() == 1) {
 
 				r = true
 		}
 
 		// Dice 3-6
-		if (Dice.HowManyThrees() == 1) && (Dice.HowManyFours() == 1) && (Dice.HowManyFives() == 1) &&
-			(Dice.HowManySixes() == 1) {
+		if (diceSet.HowManyThrees() == 1) && (diceSet.HowManyFours() == 1) && (diceSet.HowManyFives() == 1) &&
+			(diceSet.HowManySixes() == 1) {
 
 				r = true
 		}
@@ -102,19 +102,19 @@
 
 
 	// Large Straight
-	func IsLargeStraight(Dice: DiceSet) -> Boolean {
+	func IsLargeStraight(diceSet: DiceSet) -> Boolean {
 		var r = false
 
 		// Dice 1-5
-		if (Dice.HowManyOnes() == 1) && (Dice.HowManyTwos() == 1) && (Dice.HowManyThrees() == 1) &&
-			(Dice.HowManyFours() == 1) && (Dice.HowManyFives() == 1) {
+		if (diceSet.HowManyOnes() == 1) && (diceSet.HowManyTwos() == 1) && (diceSet.HowManyThrees() == 1) &&
+			(diceSet.HowManyFours() == 1) && (diceSet.HowManyFives() == 1) {
 
 				r = true
 		}
 
 		// Dice 2-6
-		if (Dice.HowManyTwos() == 1) && (Dice.HowManyThrees() == 1) && (Dice.HowManyFours() == 1) &&
-			(Dice.HowManyFives() == 1) && (Dice.HowManySixes() == 1) {
+		if (diceSet.HowManyTwos() == 1) && (diceSet.HowManyThrees() == 1) && (diceSet.HowManyFours() == 1) &&
+			(diceSet.HowManyFives() == 1) && (diceSet.HowManySixes() == 1) {
 
 				r = true
 		}
@@ -123,10 +123,10 @@
 	}
 
 	// Full House
-	func IsFullHouse(Dice: DiceSet) -> Boolean {
+	func IsFullHouse(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if (Dice.IsTwoOfSameKind().TrueFalse == true) && (Dice.IsThreeOfSameKind().TrueFalse == true) {
+		if (diceSet.IsTwoOfSameKind().TrueFalse == true) && (diceSet.IsThreeOfSameKind().TrueFalse == true) {
 				r = true
 		}
 
@@ -135,146 +135,146 @@
 
 
 	// 4 of a Kind
-	func IsFourOfKind(Dice: DiceSet) -> Boolean {
+	func IsFourOfKind(diceSet: DiceSet) -> Boolean {
 	  var r = false
 
-	  if Dice.HowManyOnes() >= 4   {r = true}
-	  if Dice.HowManyTwos() >= 4   {r = true}
-	  if Dice.HowManyThrees() >= 4 {r = true}
-	  if Dice.HowManyFours() >= 4  {r = true}
-	  if Dice.HowManyFives() >= 4  {r = true}
-	  if Dice.HowManySixes() >= 4  {r = true}
+	  if diceSet.HowManyOnes() >= 4   {r = true}
+	  if diceSet.HowManyTwos() >= 4   {r = true}
+	  if diceSet.HowManyThrees() >= 4 {r = true}
+	  if diceSet.HowManyFours() >= 4  {r = true}
+	  if diceSet.HowManyFives() >= 4  {r = true}
+	  if diceSet.HowManySixes() >= 4  {r = true}
 
 	  return r
 	}
 
 	// 3 of a Kind
-	func IsThreeOfKind(Dice: DiceSet) -> Boolean {
+	func IsThreeOfKind(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyOnes() >= 3   {r = true}
-		if Dice.HowManyTwos() >= 3   {r = true}
-		if Dice.HowManyThrees() >= 3 {r = true}
-		if Dice.HowManyFours() >= 3  {r = true}
-		if Dice.HowManyFives() >= 3  {r = true}
-		if Dice.HowManySixes() >= 3  {r = true}
+		if diceSet.HowManyOnes() >= 3   {r = true}
+		if diceSet.HowManyTwos() >= 3   {r = true}
+		if diceSet.HowManyThrees() >= 3 {r = true}
+		if diceSet.HowManyFours() >= 3  {r = true}
+		if diceSet.HowManyFives() >= 3  {r = true}
+		if diceSet.HowManySixes() >= 3  {r = true}
 
 		return r
 	}
 
 	// 5 of a Kind
-	func IsYaz(Dice: DiceSet) -> Boolean {
+	func IsYaz(diceSet: DiceSet) -> Boolean {
 		var r = false
 
-		if Dice.HowManyOnes() == 5 {r = true}
-		if Dice.HowManyTwos() == 5 {r = true}
-		if Dice.HowManyThrees() == 5 {r = true}
-		if Dice.HowManyFours() == 5 {r = true}
-		if Dice.HowManyFives() == 5 {r = true}
-		if Dice.HowManySixes() == 5 {r = true}
+		if diceSet.HowManyOnes() == 5 {r = true}
+		if diceSet.HowManyTwos() == 5 {r = true}
+		if diceSet.HowManyThrees() == 5 {r = true}
+		if diceSet.HowManyFours() == 5 {r = true}
+		if diceSet.HowManyFives() == 5 {r = true}
+		if diceSet.HowManySixes() == 5 {r = true}
 
 		return r
 	}
 
 	// Calculate all values
-	func calcAllValues(Dice: DiceSet) -> Int {
+	func calcAllValues(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		r = Dice.dice1Value + Dice.dice2Value + Dice.dice3Value + Dice.dice4Value + Dice.dice5Value
+		r = diceSet.dice1.Value + diceSet.dice2.Value + diceSet.dice3.Value + diceSet.dice4.Value + diceSet.dice5.Value
 
 		return r
 	}
 
 	// Calculate Ones
-	func CalcOnes(Dice: DiceSet) -> Int {
+	func CalcOnes(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.dice1Value == 1 {r = r + 1}
-		if Dice.dice2Value == 1 {r = r + 1}
-		if Dice.dice3Value == 1 {r = r + 1}
-		if Dice.dice4Value == 1 {r = r + 1}
-		if Dice.dice5Value == 1 {r = r + 1}
+		if diceSet.dice1.Value == 1 {r = r + 1}
+		if diceSet.dice2.Value == 1 {r = r + 1}
+		if diceSet.dice3.Value == 1 {r = r + 1}
+		if diceSet.dice4.Value == 1 {r = r + 1}
+		if diceSet.dice5.Value == 1 {r = r + 1}
 
 		return r
 	}
 
 	// Calculate Twos
-	func CalcTwos(Dice: DiceSet) -> Int {
+	func CalcTwos(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.dice1Value == 2 {r = r + 2}
-		if Dice.dice2Value == 2 {r = r + 2}
-		if Dice.dice3Value == 2 {r = r + 2}
-		if Dice.dice4Value == 2 {r = r + 2}
-		if Dice.dice5Value == 2 {r = r + 2}
+		if diceSet.dice1.Value == 2 {r = r + 2}
+		if diceSet.dice2.Value == 2 {r = r + 2}
+		if diceSet.dice3.Value == 2 {r = r + 2}
+		if diceSet.dice4.Value == 2 {r = r + 2}
+		if diceSet.dice5.Value == 2 {r = r + 2}
 
 		return r
 	}
 
 	// Calculate Threes
-	func CalcThrees(Dice: DiceSet) -> Int {
+	func CalcThrees(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.dice1Value == 3 {r = r + 3}
-		if Dice.dice2Value == 3 {r = r + 3}
-		if Dice.dice3Value == 3 {r = r + 3}
-		if Dice.dice4Value == 3 {r = r + 3}
-		if Dice.dice5Value == 3 {r = r + 3}
+		if diceSet.dice1.Value == 3 {r = r + 3}
+		if diceSet.dice2.Value == 3 {r = r + 3}
+		if diceSet.dice3.Value == 3 {r = r + 3}
+		if diceSet.dice4.Value == 3 {r = r + 3}
+		if diceSet.dice5.Value == 3 {r = r + 3}
 
 		return r
 	}
 
 	// Calculate Fours
-	func CalcFours(Dice: DiceSet) -> Int {
+	func CalcFours(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.dice1Value == 4 {r = r + 4}
-		if Dice.dice2Value == 4 {r = r + 4}
-		if Dice.dice3Value == 4 {r = r + 4}
-		if Dice.dice4Value == 4 {r = r + 4}
-		if Dice.dice5Value == 4 {r = r + 4}
+		if diceSet.dice1.Value == 4 {r = r + 4}
+		if diceSet.dice2.Value == 4 {r = r + 4}
+		if diceSet.dice3.Value == 4 {r = r + 4}
+		if diceSet.dice4.Value == 4 {r = r + 4}
+		if diceSet.dice5.Value == 4 {r = r + 4}
 
 		return r
 	}
 
 	// Calculate Fives
-	func CalcFives(Dice: DiceSet) -> Int {
+	func CalcFives(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.dice1Value == 5 {r = r + 5}
-		if Dice.dice2Value == 5 {r = r + 5}
-		if Dice.dice3Value == 5 {r = r + 5}
-		if Dice.dice4Value == 5 {r = r + 5}
-		if Dice.dice5Value == 5 {r = r + 5}
+		if diceSet.dice1.Value == 5 {r = r + 5}
+		if diceSet.dice2.Value == 5 {r = r + 5}
+		if diceSet.dice3.Value == 5 {r = r + 5}
+		if diceSet.dice4.Value == 5 {r = r + 5}
+		if diceSet.dice5.Value == 5 {r = r + 5}
 
 		return r
 	}
 
 	// Calculate Sixes
-	func CalcSixes(Dice: DiceSet) -> Int {
+	func CalcSixes(diceSet: DiceSet) -> Int {
 		var r = 0
 
-		if Dice.dice1Value == 6 {r = r + 6}
-		if Dice.dice2Value == 6 {r = r + 6}
-		if Dice.dice3Value == 6 {r = r + 6}
-		if Dice.dice4Value == 6 {r = r + 6}
-		if Dice.dice5Value == 6 {r = r + 6}
+		if diceSet.dice1.Value == 6 {r = r + 6}
+		if diceSet.dice2.Value == 6 {r = r + 6}
+		if diceSet.dice3.Value == 6 {r = r + 6}
+		if diceSet.dice4.Value == 6 {r = r + 6}
+		if diceSet.dice5.Value == 6 {r = r + 6}
 
 		return r
 	}
 
 	// Calculates Three of a kind
-	func CalcThreeOfKind(Dice: DiceSet) -> Int {
+	func CalcThreeOfKind(diceSet: DiceSet) -> Int {
 
-		let r = calcAllValues(Dice: Dice)
+		let r = calcAllValues(diceSet: diceSet)
 
 		return r
 	}
 
    // Calculates Four of a kind
-	func CalcFourOfKind(Dice: DiceSet) -> Int {
+	func CalcFourOfKind(diceSet: DiceSet) -> Int {
 
-		let r = calcAllValues(Dice: Dice)
+		let r = calcAllValues(diceSet: diceSet)
 
 		return r
 	}
@@ -312,9 +312,9 @@
 	}
 
 	// Calculate Chance
-	func CalcChance(Dice: DiceSet) -> Int {
+	func CalcChance(diceSet: DiceSet) -> Int {
 
-		var r = calcAllValues(Dice: Dice)
+		var r = calcAllValues(diceSet: diceSet)
 
 		return r
 	}

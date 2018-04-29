@@ -1,21 +1,22 @@
 ﻿// 5 dice are returned in DiceSet
 public class DiceSet {
 
-	struct Dice {
-		var Value = 0
+	var dice1 = yazDice()
+	var dice2 = yazDice()
+	var dice3 = yazDice()
+	var dice4 = yazDice()
+	var dice5 = yazDice()
+
+
+
+	func Roll() {
+
+		dice1.Roll()
+		dice2.Roll()
+		dice3.Roll()
+		dice4.Roll()
+		dice5.Roll()
 	}
-
-	var dice1 = Dice()
-	var dice2 = Dice()
-	var dice3 = Dice()
-	var dice4 = Dice()
-	var dice5 = Dice()
-
-//    func IsFinishedRolling() -> Bool {
-
-
-//    }
-
 
 	func HowManyOnes() -> Int {
 		var r = 0

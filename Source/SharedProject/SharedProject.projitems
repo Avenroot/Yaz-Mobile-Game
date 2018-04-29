@@ -10,7 +10,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)DiceResults.swift" />
-    <Compile Include="$(MSBuildThisFileDirectory)DiceSet.swift" />
     <Compile Include="$(MSBuildThisFileDirectory)Rules.swift" />
     <Compile Include="$(MSBuildThisFileDirectory)Scoreboard.swift" />
     <None Include="$(MSBuildThisFileDirectory)Images\2Dice1.bmp" />
@@ -43,6 +42,8 @@
     <None Include="$(MSBuildThisFileDirectory)Images\DICE6.bmp" />
     <None Include="$(MSBuildThisFileDirectory)Images\DICE6.JPG" />
     <None Include="$(MSBuildThisFileDirectory)Images\dice6.png" />
+    <Compile Include="$(MSBuildThisFileDirectory)DiceSet.swift" />
+    <Compile Include="$(MSBuildThisFileDirectory)Game.swift" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\" />

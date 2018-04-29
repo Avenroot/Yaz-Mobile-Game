@@ -1,28 +1,35 @@
 ﻿public class yazDice: android.widget.ImageView {
 
-    var locked = false
-    var value = 0
+    var Locked = false
+    var Value = 0
     let ytimer = yazTimer(1 * 1000, 100)
 
-    func Roll() {
+    func Roll( timerOnFinishHandler: ()->() ) -> Int32 {
 
         ytimer.onTickCallback = timerOnTickHandler  // would be nice to put this in an init{}
-        ytimer.start();
+        ytimer.OnFinishCallback =  { timerOnFinishHandler() }
+        ytimer.start()
+        return Value
 
     }
 
     func timerOnTickHandler() {
 
-        if !locked {
+        if !Locked {
             let rand = Random()
             var r = rand.NextInt(6)
-            value = r
+            Value = r + 1  // Zero Indexed and need the real value of the dice
             var dice = diceNumberImages()
             let drawableID = Context
             .getResources()
             .getIdentifier(dice[r], "drawable", Context.getPackageName())
             self.setImageResource(drawableID)
         }
+    }
+
+    func timerOnFinishHandler() -> Int32 {
+
+        return Value
 
     }
 
