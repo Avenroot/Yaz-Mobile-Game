@@ -9,7 +9,7 @@ public class ScoreItem {
 	var Used = false
 	var Value = 0
 
-	public func Rest() {
+	public func Reset() {
 
 		Used = false
 		Value = 0
@@ -65,39 +65,64 @@ public class Scoreboard {
 
 		let rules = Rules()
 
-		// need to add code to select Used
 		switch TypeOfScore {
-			case ScoreTypes.Ones: ones.Value = rules.CalcOnes(diceSet: diceSet)
-			case ScoreTypes.Twos: twos.Value = rules.CalcTwos(diceSet: diceSet)
-			case ScoreTypes.Threes: threes.Value = rules.CalcThrees(diceSet: diceSet)
-			case ScoreTypes.Fours: fours.Value = rules.CalcFours(diceSet: diceSet)
-			case ScoreTypes.Fives: fives.Value = rules.CalcFives(diceSet: diceSet)
-			case ScoreTypes.Sixes: sixes.Value = rules.CalcSixes(diceSet: diceSet)
-			case ScoreTypes.ThreeOfKind: threeOfKind.Value = rules.CalcThreeOfKind(diceSet: diceSet)
-			case ScoreTypes.FourOfKind: fourOfKind.Value = rules.CalcFourOfKind(diceSet: diceSet)
-			case ScoreTypes.FullHouse: fullHouse.Value = rules.CalcFullHouse()
-			case ScoreTypes.SmallStraight: smallStraight.Value = rules.CalcSmallStraight()
-			case ScoreTypes.LargeStraight: largeStraight.Value = rules.CalcLargeStright()
-			case ScoreTypes.Yaz: yaz.Value = rules.CalcYaz()
-			case ScoreTypes.Chance: chance.Value = rules.CalcChance(diceSet: diceSet)
+			case ScoreTypes.Ones:
+				ones.Value = rules.CalcOnes(diceSet: diceSet)
+				ones.Used = true
+			case ScoreTypes.Twos:
+				twos.Value = rules.CalcTwos(diceSet: diceSet)
+				twos.Used = true
+			case ScoreTypes.Threes:
+				threes.Value = rules.CalcThrees(diceSet: diceSet)
+				threes.Used = true
+			case ScoreTypes.Fours:
+				fours.Value = rules.CalcFours(diceSet: diceSet)
+				fours.Used = true
+			case ScoreTypes.Fives:
+				fives.Value = rules.CalcFives(diceSet: diceSet)
+				fives.Used = true
+			case ScoreTypes.Sixes:
+				sixes.Value = rules.CalcSixes(diceSet: diceSet)
+				sixes.Used = true
+			case ScoreTypes.ThreeOfKind:
+				threeOfKind.Value = rules.CalcThreeOfKind(diceSet: diceSet)
+				threeOfKind.Used = true
+			case ScoreTypes.FourOfKind:
+				fourOfKind.Value = rules.CalcFourOfKind(diceSet: diceSet)
+				fourOfKind.Used = true
+			case ScoreTypes.FullHouse:
+				fullHouse.Value = rules.CalcFullHouse()
+				fullHouse.Used = true
+			case ScoreTypes.SmallStraight:
+				smallStraight.Value = rules.CalcSmallStraight()
+				smallStraight.Used = true
+			case ScoreTypes.LargeStraight:
+				largeStraight.Value = rules.CalcLargeStright()
+				largeStraight.Used = true
+			case ScoreTypes.Yaz:
+				yaz.Value = rules.CalcYaz()
+				yaz.Used = true
+			case ScoreTypes.Chance:
+				chance.Value = rules.CalcChance(diceSet: diceSet)
+				chance.Used = true
 		}
 	}
 
 	func Reset() {
 
-		ones.Rest()
-		twos.Rest()
-		threes.Rest()
-		fours.Rest()
-		fives.Rest()
-		sixes.Rest()
-		threeOfKind.Rest()
-		fourOfKind.Rest()
-		fullHouse.Rest()
-		smallStraight.Rest()
-		largeStraight.Rest()
-		yaz.Rest()
-		chance.Rest()
+		ones.Reset()
+		twos.Reset()
+		threes.Reset()
+		fours.Reset()
+		fives.Reset()
+		sixes.Reset()
+		threeOfKind.Reset()
+		fourOfKind.Reset()
+		fullHouse.Reset()
+		smallStraight.Reset()
+		largeStraight.Reset()
+		yaz.Reset()
+		chance.Reset()
 		upperTotal = 0
 		lowerTotal = 0
 		grandTotal = 0

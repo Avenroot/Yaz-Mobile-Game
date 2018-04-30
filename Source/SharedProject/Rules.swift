@@ -77,22 +77,22 @@
 		var r = false
 
 		// Dice 1-4
-		if (diceSet.HowManyOnes() == 1) && (diceSet.HowManyTwos() == 1) && (diceSet.HowManyThrees() == 1) &&
-			(diceSet.HowManyFours() == 1) {
+		if (diceSet.HowManyOnes() >= 1) && (diceSet.HowManyTwos() >= 1) && (diceSet.HowManyThrees() >= 1) &&
+			(diceSet.HowManyFours() >= 1) {
 
 				r = true
 		}
 
 		// Dice 2-5
-		if (diceSet.HowManyTwos() == 1) && (diceSet.HowManyThrees() == 1) && (diceSet.HowManyFours() == 1) &&
-			(diceSet.HowManyFives() == 1) {
+		if (diceSet.HowManyTwos() >= 1) && (diceSet.HowManyThrees() >= 1) && (diceSet.HowManyFours() >= 1) &&
+			(diceSet.HowManyFives() >= 1) {
 
 				r = true
 		}
 
 		// Dice 3-6
-		if (diceSet.HowManyThrees() == 1) && (diceSet.HowManyFours() == 1) && (diceSet.HowManyFives() == 1) &&
-			(diceSet.HowManySixes() == 1) {
+		if (diceSet.HowManyThrees() >= 1) && (diceSet.HowManyFours() >= 1) && (diceSet.HowManyFives() >= 1) &&
+			(diceSet.HowManySixes() >= 1) {
 
 				r = true
 		}

@@ -44,13 +44,25 @@ public class MainActivity: Activity {
         tvLowerTotal.Text = "Lower Total: " + Integer.toString(game.scoreBoard.GetLowerTotal())
         tvGrandTotal.Text = "Grand Total: " + Integer.toString(game.scoreBoard.GetGrandTotal())
         self.game.HowManyRolls = 0
+        UnlockAllDice()
+
     }
 
-    // This is Temp to see dice results
+    // This is Temp to see dice results for testing
     public func updateResultUI() {
 
         self.btnRollDice.Text = self.game.diceSet.dice1.Value + "," + self.game.diceSet.dice2.Value + "," +
         self.game.diceSet.dice3.Value + "," + self.game.diceSet.dice4.Value + "," + self.game.diceSet.dice5.Value
+
+    }
+
+    public func UnlockAllDice() {
+
+        diceOne.Locked = false
+        diceTwo.Locked = false
+        diceThree.Locked = false
+        diceFour.Locked = false
+        diceFive.Locked = false
 
     }
 
@@ -65,11 +77,31 @@ public class MainActivity: Activity {
 
             if self.game.HowManyRolls < 3 {
 
-                self.game.diceSet.dice1.Value = self.diceOne.Roll() { self.updateResultUI() }
-                self.game.diceSet.dice2.Value = self.diceTwo.Roll() { self.updateResultUI() }
-                self.game.diceSet.dice3.Value = self.diceThree.Roll() { self.updateResultUI() }
-                self.game.diceSet.dice4.Value = self.diceFour.Roll() { self.updateResultUI() }
-                self.game.diceSet.dice5.Value = self.diceFive.Roll() { self.updateResultUI() }
+                self.diceOne.Roll() {
+                    self.game.diceSet.dice1.Value = self.diceOne.Value
+                    self.updateResultUI()
+                }
+
+                self.diceTwo.Roll() {
+                    self.game.diceSet.dice2.Value = self.diceTwo.Value
+                    self.updateResultUI()
+                }
+
+                self.diceThree.Roll() {
+                    self.game.diceSet.dice3.Value = self.diceThree.Value
+                    self.updateResultUI()
+                }
+
+                self.diceFour.Roll() {
+                    self.game.diceSet.dice4.Value = self.diceFour.Value
+                    self.updateResultUI()
+                }
+
+                self.diceFive.Roll() {
+                    self.game.diceSet.dice5.Value = self.diceFive.Value
+                    self.updateResultUI()
+                }
+
 
                 self.game.HowManyRolls += 1
 
@@ -180,7 +212,7 @@ public class MainActivity: Activity {
                 }
 
             } else {
-                // show error dialog
+                // message that diceset is not a Three of a Kind
             }
         }
 
@@ -200,7 +232,7 @@ public class MainActivity: Activity {
                 }
 
             } else {
-                // show error dialog
+                // message that diceset is not a Four of a Kind.  Given the option to add a zero or not.
             }
         }
 
@@ -220,7 +252,7 @@ public class MainActivity: Activity {
                 }
 
             } else {
-                // show error dialog
+                // message that diceset is not a Full House
             }
         }
 
@@ -240,7 +272,7 @@ public class MainActivity: Activity {
                 }
 
             } else {
-                // show error dialog
+                // message that diceset is not a Small Straight
             }
         }
 

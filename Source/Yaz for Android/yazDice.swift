@@ -4,12 +4,11 @@
     var Value = 0
     let ytimer = yazTimer(1 * 1000, 100)
 
-    func Roll( timerOnFinishHandler: ()->() ) -> Int32 {
+    func Roll( timerOnFinishHandler: ()->() ) {
 
         ytimer.onTickCallback = timerOnTickHandler  // would be nice to put this in an init{}
         ytimer.OnFinishCallback =  { timerOnFinishHandler() }
         ytimer.start()
-        return Value
 
     }
 
