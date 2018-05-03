@@ -122,6 +122,7 @@ public class MainActivity: Activity {
 
             } else {
                 // message that Ones have already been used
+                Toast.makeText(self, "Ones have already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -136,6 +137,7 @@ public class MainActivity: Activity {
 
             } else {
                 // message that Twos have already been used
+                Toast.makeText(self, "Twos have already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -149,7 +151,8 @@ public class MainActivity: Activity {
                 self.UpdateUI()
 
             } else {
-                // message that Threes have alreayd been used
+                // message that Threes have already been used
+                Toast.makeText(self, "Threes have already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -164,6 +167,7 @@ public class MainActivity: Activity {
 
             } else {
                 // message that Fours have alreayd been used
+                Toast.makeText(self, "Fours have already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -178,6 +182,7 @@ public class MainActivity: Activity {
 
             } else {
                 // message that Five have already been used
+                Toast.makeText(self, "Fives have already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -192,6 +197,7 @@ public class MainActivity: Activity {
 
             } else {
                 // message that Sixes have alreayd been used
+                Toast.makeText(self, "Sixes have already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
@@ -209,6 +215,7 @@ public class MainActivity: Activity {
 
                 } else {
                     // message that Three of a Kind has alreayd been used
+                    Toast.makeText(self, "Three of a Kind has already been used", Toast.LENGTH_SHORT).show()
                 }
 
             } else {
@@ -229,6 +236,7 @@ public class MainActivity: Activity {
 
                 } else {
                     // message that Four of a Kind has already been used
+                    Toast.makeText(self, "Four of a Kind already been used", Toast.LENGTH_SHORT).show()
                 }
 
             } else {
@@ -249,6 +257,7 @@ public class MainActivity: Activity {
 
                 } else {
                     // message that Full House has alredy been used
+                    Toast.makeText(self, "Full House has already been used", Toast.LENGTH_SHORT).show()
                 }
 
             } else {
@@ -269,6 +278,7 @@ public class MainActivity: Activity {
 
                 } else {
                     // message that Small Straight has alreayd been used
+                    Toast.makeText(self, "Small Straight has already been used", Toast.LENGTH_SHORT).show()
                 }
 
             } else {
@@ -289,6 +299,7 @@ public class MainActivity: Activity {
 
                 } else {
                     // message that Large Straight has already been used
+                    Toast.makeText(self, "Large Straight has already been used", Toast.LENGTH_SHORT).show()
                 }
 
             } else {
@@ -309,6 +320,7 @@ public class MainActivity: Activity {
 
                 } else {
                     // message that Yaz has alreayd been used
+                    Toast.makeText(self, "Yaz has already been used", Toast.LENGTH_SHORT).show()
                 }
 
             } else {
@@ -327,6 +339,7 @@ public class MainActivity: Activity {
 
             } else {
                 //message that Chance has already been used
+                Toast.makeText(self, "Chance has already been used", Toast.LENGTH_SHORT).show()
             }
         }
 
