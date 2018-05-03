@@ -220,6 +220,11 @@ public class MainActivity: Activity {
 
             } else {
                 // message that diceset is not a Three of a Kind
+                buildAlert(context: self)
+                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                .create()
+                .show()
             }
         }
 
@@ -241,6 +246,11 @@ public class MainActivity: Activity {
 
             } else {
                 // message that diceset is not a Four of a Kind.  Given the option to add a zero or not.
+                buildAlert(context: self)
+                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                .create()
+                .show()
             }
         }
 
@@ -262,6 +272,11 @@ public class MainActivity: Activity {
 
             } else {
                 // message that diceset is not a Full House
+                buildAlert(context: self)
+                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                .create()
+                .show()
             }
         }
 
@@ -283,6 +298,11 @@ public class MainActivity: Activity {
 
             } else {
                 // message that diceset is not a Small Straight
+                buildAlert(context: self)
+                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                .create()
+                .show()
             }
         }
 
@@ -304,6 +324,11 @@ public class MainActivity: Activity {
 
             } else {
                 // message that diceset is not a Large Straight
+                buildAlert(context: self)
+                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                .create()
+                .show()
             }
         }
 
@@ -325,6 +350,11 @@ public class MainActivity: Activity {
 
             } else {
                 // message that diceset is not a Yaz
+                buildAlert(context: self)
+                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                .create()
+                .show()
             }
         }
 
@@ -389,4 +419,12 @@ public class MainActivity: Activity {
             }
         }
     }
+
+    private func buildAlert(context : Context) -> AlertDialog.Builder {
+        return AlertDialog
+        .Builder(context)
+        .setMessage("Do you wanna set points to 0?")
+        .setCancelable(true)
+    }
+
 }

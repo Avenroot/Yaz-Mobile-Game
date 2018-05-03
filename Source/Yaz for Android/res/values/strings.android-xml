@@ -1,4 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="app_name">yaz</string>
+  <string name="alert_mess">Do you want to put zero points there?</string>
+  <string name="alert_pos_resp">Yes!</string>
+  <string name="alert_neg_resp">Cancel</string>
 </resources>
