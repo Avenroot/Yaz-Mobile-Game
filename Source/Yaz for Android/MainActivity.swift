@@ -221,7 +221,9 @@ public class MainActivity: Activity {
             } else {
                 // message that diceset is not a Three of a Kind
                 buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
+                // game logic if user decide to put 0 there
+                    }
                 .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
                 .create()
                 .show()
@@ -247,7 +249,9 @@ public class MainActivity: Activity {
             } else {
                 // message that diceset is not a Four of a Kind.  Given the option to add a zero or not.
                 buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
+                // game logic if user decide to put 0 there
+                    }
                 .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
                 .create()
                 .show()
@@ -273,7 +277,9 @@ public class MainActivity: Activity {
             } else {
                 // message that diceset is not a Full House
                 buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
+                // game logic if user decide to put 0 there
+                    }
                 .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
                 .create()
                 .show()
@@ -299,7 +305,9 @@ public class MainActivity: Activity {
             } else {
                 // message that diceset is not a Small Straight
                 buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
+                // game logic if user decide to put 0 there
+                    }
                 .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
                 .create()
                 .show()
@@ -325,7 +333,9 @@ public class MainActivity: Activity {
             } else {
                 // message that diceset is not a Large Straight
                 buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
+                // game logic if user decide to put 0 there
+                    }
                 .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
                 .create()
                 .show()
@@ -351,7 +361,9 @@ public class MainActivity: Activity {
             } else {
                 // message that diceset is not a Yaz
                 buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in dialog.cancel()} // game logic if user decide to put 0 there
+                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
+                // game logic if user decide to put 0 there
+                    }
                 .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
                 .create()
                 .show()
