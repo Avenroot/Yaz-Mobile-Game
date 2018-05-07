@@ -5,3 +5,11 @@ obj
 *.bugreport.*
 Preview.html
 .suo
+
+Source/Yaz for Android/\.idea/codeStyles/Project\.xml
+
+Source/Yaz for Android/\.idea/modules\.xml
+
+Source/Yaz for Android/\.idea/workspace\.xml
+
+Source/Yaz for Android/\.idea/Yaz for Android\.iml
