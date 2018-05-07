@@ -5,6 +5,7 @@
 	let largeStraightValue = 40
 	let yazValue = 50
 	let upperBonusValue = 35
+	let upperValueToGetBonus = 63
 
 	// Ones
 	func IsOnes(diceSet: DiceSet) -> Boolean {
@@ -266,57 +267,50 @@
 	// Calculates Three of a kind
 	func CalcThreeOfKind(diceSet: DiceSet) -> Int {
 
-		let r = calcAllValues(diceSet: diceSet)
+		return calcAllValues(diceSet: diceSet)
 
-		return r
 	}
 
    // Calculates Four of a kind
 	func CalcFourOfKind(diceSet: DiceSet) -> Int {
 
-		let r = calcAllValues(diceSet: diceSet)
+		return calcAllValues(diceSet: diceSet)
 
-		return r
 	}
 
 	// Calculate Fullhouse
 	func CalcFullHouse() -> Int {
 
-		let r = fullHouseValue
+		return fullHouseValue
 
-		return r
 	}
 
 	// Calculate Small Straight
 	func CalcSmallStraight() -> Int {
 
-		let r = smallStraightValue
+		return smallStraightValue
 
-		return r
 	}
 
 	// Calculate Large Straight
 	func CalcLargeStright() -> Int {
 
-		let r = largeStraightValue
+		return largeStraightValue
 
-		return r
 	}
 
 	// Calculates Yaz
 	func CalcYaz() -> Int {
 
-		let r = yazValue
+		return yazValue
 
-		return r
 	}
 
 	// Calculate Chance
 	func CalcChance(diceSet: DiceSet) -> Int {
 
-		var r = calcAllValues(diceSet: diceSet)
+		return calcAllValues(diceSet: diceSet)
 
-		return r
 	}
 
 }

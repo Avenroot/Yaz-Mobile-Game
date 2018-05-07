@@ -5,6 +5,7 @@ import android.os
 import android.util
 import android.view
 import android.widget
+import android.graphics
 
 public class MainActivity: Activity {
 
@@ -32,19 +33,164 @@ public class MainActivity: Activity {
     var btnChance: Button { return findViewById(R.id.btnChance) as! Button }
 
     var btnRollDice: Button { return findViewById(R.id.btnRollDice) as! Button }
+    var tvRolls: TextView { return findViewById(R.id.tvRolls) as! TextView }
 
     var tvUpperTotal: TextView { return findViewById(R.id.tvUpperTotal) as! TextView }
     var tvLowerTotal: TextView { return findViewById(R.id.tvLowerTotal) as! TextView }
     var tvGrandTotal: TextView { return findViewById(R.id.tvGrandTotal) as! TextView }
 
 
+    public func StartNewGame() {
+
+        game.Start()
+        UpdateUI()
+        UnlockAllDice()
+        game.HowManyRolls = 0
+
+    }
+
+    // UpdateUI() should only be called when you place a score on the scoreboard
     public func UpdateUI() {
+
+        //btnOnes
+        btnOnes.Text = "Ones: " + Integer.toString(self.game.scoreBoard.ones.Value)
+        if self.game.scoreBoard.ones.Used {
+            self.btnOnes.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnOnes.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnTwos
+        btnTwos.Text = "Twos: " + Integer.toString(self.game.scoreBoard.twos.Value)
+        if self.game.scoreBoard.twos.Used {
+            self.btnTwos.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnTwos.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnThrees
+        btnThrees.Text = "Threes: " + Integer.toString(self.game.scoreBoard.threes.Value)
+        if self.game.scoreBoard.threes.Used {
+            self.btnThrees.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnThrees.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnFour
+        btnFours.Text = "Fours: " + Integer.toString(self.game.scoreBoard.fours.Value)
+        if self.game.scoreBoard.fours.Used {
+            self.btnFours.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnFours.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnFives
+        btnFives.Text = "Fives: " + Integer.toString(self.game.scoreBoard.fives.Value)
+        if self.game.scoreBoard.fives.Used {
+            self.btnFives.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnFives.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnSixes
+        btnSixes.Text = "Sixes: " + Integer.toString(self.game.scoreBoard.sixes.Value)
+        if self.game.scoreBoard.sixes.Used {
+            self.btnSixes.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnSixes.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnThreeOfKind
+        btnThreeOfKind.Text = "3 of Kind: " + Integer.toString(self.game.scoreBoard.threeOfKind.Value)
+        if self.game.scoreBoard.threeOfKind.Used {
+            self.btnThreeOfKind.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnThreeOfKind.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnFourOfKind
+        btnFourOfKind.Text = "4 of Kind: " + Integer.toString(self.game.scoreBoard.fourOfKind.Value)
+        if self.game.scoreBoard.fourOfKind.Used {
+            self.btnFourOfKind.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnFourOfKind.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnFullHouse
+        btnFullHouse.Text = "Full House: " + Integer.toString(self.game.scoreBoard.fullHouse.Value)
+        if self.game.scoreBoard.fullHouse.Used {
+            self.btnFullHouse.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnFullHouse.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnSmallStraight
+        btnSmallStraight.Text = "Small Straight: " + Integer.toString(self.game.scoreBoard.smallStraight.Value)
+        if self.game.scoreBoard.smallStraight.Used {
+            self.btnSmallStraight.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnSmallStraight.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnLargeStraight
+        btnLargeStraight.Text = "Large Straight: " + Integer.toString(self.game.scoreBoard.largeStraight.Value)
+        if self.game.scoreBoard.largeStraight.Used {
+            self.btnLargeStraight.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnLargeStraight.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnYaz
+        btnYaz.Text = "Yaz: " + Integer.toString(self.game.scoreBoard.yaz.Value)
+        if self.game.scoreBoard.yaz.Used {
+            self.btnYaz.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnYaz.setTypeface(nil, Typeface.NORMAL)
+        }
+
+        // btnChance
+        btnChance.Text = "Chance: " + Integer.toString(self.game.scoreBoard.chance.Value)
+        if self.game.scoreBoard.chance.Used {
+            self.btnChance.setTypeface(nil, Typeface.BOLD)
+        } else {
+            self.btnChance.setTypeface(nil, Typeface.NORMAL)
+        }
 
         tvUpperTotal.Text = "Upper Total: " + Integer.toString(game.scoreBoard.GetUpperTotal())
         tvLowerTotal.Text = "Lower Total: " + Integer.toString(game.scoreBoard.GetLowerTotal())
         tvGrandTotal.Text = "Grand Total: " + Integer.toString(game.scoreBoard.GetGrandTotal())
-        self.game.HowManyRolls = 0
-        UnlockAllDice()
+
+        if game.scoreBoard.IsEndGame() {
+
+            self.buildAlert(context: self)
+            .setMessage("Do you want to start a new game?")
+            .setPositiveButton("Yes") {(dialog, which) in Toast.makeText(self, "New Game Started", Toast.LENGTH_LONG).show()
+
+            // game logic if user decide to put 0 there
+            self.StartNewGame()
+
+            }
+            .setNegativeButton("No"){(dialog, which) in dialog.cancel()}
+            .create()
+            .show()
+
+
+        } else {
+
+            self.game.HowManyRolls = 0
+
+            UnlockAllDice()
+            UpdateDiceBorderColor()
+            UpdateRollInfo()
+
+        }
+    }
+
+    private func UpdateRollInfo() {
+
+        self.tvRolls.setTextColor(Color.BLACK)
+        self.tvRolls.setTypeface(nil, Typeface.NORMAL)
+        self.tvRolls.Text = "Rolls: " + Integer.toString(game.HowManyRolls)
 
     }
 
@@ -66,11 +212,56 @@ public class MainActivity: Activity {
 
     }
 
+    public func UpdateDiceBorderColor() {
+
+       if self.diceOne.Locked {
+           self.diceOne.setPadding(10,10,10,10)
+           self.diceOne.setBackgroundColor(Color.YELLOW)
+       } else {
+           self.diceOne.setPadding(10,10,10,10)
+           self.diceOne.setBackgroundColor(Color.GREEN)
+       }
+
+       if self.diceTwo.Locked {
+           self.diceTwo.setPadding(10,10,10,10)
+           self.diceTwo.setBackgroundColor(Color.YELLOW)
+       } else {
+           self.diceTwo.setPadding(10,10,10,10)
+           self.diceTwo.setBackgroundColor(Color.GREEN)
+       }
+
+       if self.diceThree.Locked {
+           self.diceThree.setPadding(10,10,10,10)
+           self.diceThree.setBackgroundColor(Color.YELLOW)
+       } else {
+           self.diceThree.setPadding(10,10,10,10)
+           self.diceThree.setBackgroundColor(Color.GREEN)
+       }
+
+       if self.diceFour.Locked {
+           self.diceFour.setPadding(10,10,10,10)
+           self.diceFour.setBackgroundColor(Color.YELLOW)
+       } else {
+           self.diceFour.setPadding(10,10,10,10)
+           self.diceFour.setBackgroundColor(Color.GREEN)
+       }
+
+       if self.diceFive.Locked {
+           self.diceFive.setPadding(10,10,10,10)
+           self.diceFive.setBackgroundColor(Color.YELLOW)
+       } else {
+           self.diceFive.setPadding(10,10,10,10)
+           self.diceFive.setBackgroundColor(Color.GREEN)
+       }
+
+    }
+
 
     public override func onCreate(_ savedInstanceState: Bundle!) {
         super.onCreate(savedInstanceState)
         ContentView = R.layout.main
 
+        self.UpdateDiceBorderColor()
 
         // Roll Dice
         btnRollDice.OnClickListener = { (v: View!) in
@@ -104,9 +295,19 @@ public class MainActivity: Activity {
 
 
                 self.game.HowManyRolls += 1
+                self.tvRolls.Text = "Rolls: " + Integer.toString(self.game.HowManyRolls)
+
+                if self.game.HowManyRolls == 3 {
+                    self.tvRolls.setTextColor(Color.RED)
+                    self.tvRolls.setTypeface(nil, Typeface.BOLD)
+                } else {
+                    self.tvRolls.setTextColor(Color.BLACK)
+                    self.tvRolls.setTypeface(nil, Typeface.NORMAL)
+                }
 
             } else {
                 // show message that can't roll again
+                Toast.makeText(self, "You have rolled 3 times. Place your score", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -114,90 +315,108 @@ public class MainActivity: Activity {
         // Ones
         btnOnes.OnClickListener = { (v: View!)  in
 
-            if !self.game.scoreBoard.ones.Used {
+            if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Ones, diceSet: self.game.diceSet)
-                self.btnOnes.Text = "Ones: " + Integer.toString(self.game.scoreBoard.ones.Value)
-                self.UpdateUI()
+                if !self.game.scoreBoard.ones.Used {
 
-            } else {
-                // message that Ones have already been used
-                Toast.makeText(self, "Ones have already been used", Toast.LENGTH_SHORT).show()
+                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Ones, diceSet: self.game.diceSet)
+                    self.UpdateUI()
+                    Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.ones.Value) + " to Ones", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    // message that Ones have already been used
+                    Toast.makeText(self, "Ones have already been used", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
         // Twos
         btnTwos.OnClickListener = { (v: View!)  in
 
-            if !self.game.scoreBoard.twos.Used {
+            if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Twos, diceSet: self.game.diceSet)
-                self.btnTwos.Text = "Twos: " + Integer.toString(self.game.scoreBoard.twos.Value)
-                self.UpdateUI()
+                if !self.game.scoreBoard.twos.Used {
 
-            } else {
-                // message that Twos have already been used
-                Toast.makeText(self, "Twos have already been used", Toast.LENGTH_SHORT).show()
+                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Twos, diceSet: self.game.diceSet)
+                    self.UpdateUI()
+                    Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.twos.Value) + " to Twos", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    // message that Twos have already been used
+                    Toast.makeText(self, "Twos have already been used", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
-        // Threes
-        btnThrees.OnClickListener = { (v: View!)  in
+            // Threes
+            btnThrees.OnClickListener = { (v: View!)  in
 
-            if !self.game.scoreBoard.threes.Used {
+                if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Threes, diceSet: self.game.diceSet)
-                self.btnThrees.Text = "Threes: " + Integer.toString(self.game.scoreBoard.threes.Value)
-                self.UpdateUI()
+                    if !self.game.scoreBoard.threes.Used {
 
-            } else {
-                // message that Threes have already been used
-                Toast.makeText(self, "Threes have already been used", Toast.LENGTH_SHORT).show()
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Threes, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.threes.Value) + " to Threes", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that Threes have already been used
+                        Toast.makeText(self, "Threes have already been used", Toast.LENGTH_SHORT).show()
+                    }
+                }
             }
-        }
 
         // Fours
         btnFours.OnClickListener = { (v: View!)  in
 
-            if !self.game.scoreBoard.fours.Used {
+            if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Fours, diceSet: self.game.diceSet)
-                self.btnFours.Text = "Fours: " + Integer.toString(self.game.scoreBoard.fours.Value)
-                self.UpdateUI()
+                if !self.game.scoreBoard.fours.Used {
 
-            } else {
-                // message that Fours have alreayd been used
-                Toast.makeText(self, "Fours have already been used", Toast.LENGTH_SHORT).show()
+                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Fours, diceSet: self.game.diceSet)
+                    self.UpdateUI()
+                    Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.fours.Value) + " to Fours", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    // message that Fours have alreayd been used
+                    Toast.makeText(self, "Fours have already been used", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
         // Fives
         btnFives.OnClickListener = { (v: View!)  in
 
-            if !self.game.scoreBoard.fives.Used {
+            if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Fives, diceSet: self.game.diceSet)
-                self.btnFives.Text = "Fives: " + Integer.toString(self.game.scoreBoard.fives.Value)
-                self.UpdateUI()
+                if !self.game.scoreBoard.fives.Used {
 
-            } else {
-                // message that Five have already been used
-                Toast.makeText(self, "Fives have already been used", Toast.LENGTH_SHORT).show()
+                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Fives, diceSet: self.game.diceSet)
+                    self.UpdateUI()
+                    Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.fives.Value) + " to Fives", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    // message that Five have already been used
+                    Toast.makeText(self, "Fives have already been used", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
         // Sixes
         btnSixes.OnClickListener = { (v: View!)  in
 
-            if !self.game.scoreBoard.sixes.Used {
+            if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Sixes, diceSet: self.game.diceSet)
-                self.btnSixes.Text = "Sixes: " + Integer.toString(self.game.scoreBoard.sixes.Value)
-                self.UpdateUI()
+                if !self.game.scoreBoard.sixes.Used {
 
-            } else {
-                // message that Sixes have alreayd been used
-                Toast.makeText(self, "Sixes have already been used", Toast.LENGTH_SHORT).show()
+                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Sixes, diceSet: self.game.diceSet)
+                    self.UpdateUI()
+                    Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.sixes.Value) + " to Sixes", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    // message that Sixes have alreayd been used
+                    Toast.makeText(self, "Sixes have already been used", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
@@ -205,183 +424,218 @@ public class MainActivity: Activity {
         // Three of a Kind
         btnThreeOfKind.OnClickListener = { (v: View!) in
 
-            if self.game.rules.IsThreeOfKind(diceSet: self.game.diceSet) {
+            if self.game.HowManyRolls > 0 {
 
-                if !self.game.scoreBoard.largeStraight.Used {
+                if !self.game.scoreBoard.threeOfKind.Used {
 
-                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.ThreeOfKind, diceSet: self.game.diceSet)
-                    self.btnThreeOfKind.Text = "3 of Kind: " + Integer.toString(self.game.scoreBoard.threeOfKind.Value)
-                    self.UpdateUI()
+                    if self.game.rules.IsThreeOfKind(diceSet: self.game.diceSet) {
+
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.ThreeOfKind, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.threeOfKind.Value) + " to 3 of Kind", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that diceset is not a Three of a Kind
+                        self.buildAlert(context: self)
+                        .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added to 3 of Kind", Toast.LENGTH_LONG).show()
+                        // game logic if user decide to put 0 there
+                        self.game.scoreBoard.threeOfKind.SetToZero()
+                        self.UpdateUI()
+                    }
+                        .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                        .create()
+                        .show()
+                    }
 
                 } else {
                     // message that Three of a Kind has alreayd been used
-                    Toast.makeText(self, "Three of a Kind has already been used", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(self, "3 of Kind has already been used", Toast.LENGTH_SHORT).show()
                 }
 
-            } else {
-                // message that diceset is not a Three of a Kind
-                buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
-                // game logic if user decide to put 0 there
-                    }
-                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
-                .create()
-                .show()
             }
+
         }
 
         // Four of a Kind
         btnFourOfKind.OnClickListener = { (v: View! ) in
 
-            if self.game.rules.IsFourOfKind(diceSet: self.game.diceSet) {
+            if self.game.HowManyRolls > 0 {
 
                 if !self.game.scoreBoard.fourOfKind.Used {
 
-                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.FourOfKind, diceSet: self.game.diceSet)
-                    self.btnFourOfKind.Text = "4 of Kind: " + Integer.toString(self.game.scoreBoard.fourOfKind.Value)
-                    self.UpdateUI()
+                    if self.game.rules.IsFourOfKind(diceSet: self.game.diceSet) {
+
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.FourOfKind, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.fourOfKind.Value) + " to 4 of Kind", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that diceset is not a Four of a Kind.  Given the option to add a zero or not.
+                        self.buildAlert(context: self)
+                        .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added to 4 of Kind", Toast.LENGTH_LONG).show()
+                        // game logic if user decide to put 0 there
+                        self.game.scoreBoard.fourOfKind.SetToZero()
+                        self.UpdateUI()
+                    }
+                        .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                        .create()
+                        .show()
+                    }
 
                 } else {
                     // message that Four of a Kind has already been used
-                    Toast.makeText(self, "Four of a Kind already been used", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(self, "4 of Kind already been used", Toast.LENGTH_SHORT).show()
                 }
-
-            } else {
-                // message that diceset is not a Four of a Kind.  Given the option to add a zero or not.
-                buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
-                // game logic if user decide to put 0 there
-                    }
-                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
-                .create()
-                .show()
             }
         }
 
         // Full House
         btnFullHouse.OnClickListener = { (v: View! ) in
 
-            if self.game.rules.IsFullHouse(diceSet: self.game.diceSet) {
+            if self.game.HowManyRolls > 0 {
 
                 if !self.game.scoreBoard.fullHouse.Used {
 
-                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.FullHouse, diceSet: self.game.diceSet)
-                    self.btnFullHouse.Text = "Full House: " + Integer.toString(self.game.scoreBoard.fullHouse.Value)
-                    self.UpdateUI()
+                    if self.game.rules.IsFullHouse(diceSet: self.game.diceSet) {
+
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.FullHouse, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.fullHouse.Value) + " to Full House", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that diceset is not a Full House
+                        self.buildAlert(context: self)
+                        .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added to Full House", Toast.LENGTH_LONG).show()
+                        // game logic if user decide to put 0 there
+                        self.game.scoreBoard.fullHouse.SetToZero()
+                        self.UpdateUI()
+                    }
+                        .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                        .create()
+                        .show()
+                    }
 
                 } else {
                     // message that Full House has alredy been used
                     Toast.makeText(self, "Full House has already been used", Toast.LENGTH_SHORT).show()
                 }
-
-            } else {
-                // message that diceset is not a Full House
-                buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
-                // game logic if user decide to put 0 there
-                    }
-                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
-                .create()
-                .show()
             }
         }
 
         // Small Straight
         btnSmallStraight.OnClickListener = { (v: View! ) in
 
-            if self.game.rules.IsSmallStraight(diceSet: self.game.diceSet) {
+            if self.game.HowManyRolls > 0 {
 
                 if !self.game.scoreBoard.smallStraight.Used {
 
-                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.SmallStraight, diceSet: self.game.diceSet)
-                    self.btnSmallStraight.Text = "Small Straight: " + Integer.toString(self.game.scoreBoard.smallStraight.Value)
-                    self.UpdateUI()
+                    if self.game.rules.IsSmallStraight(diceSet: self.game.diceSet) {
+
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.SmallStraight, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.smallStraight.Value) + " to Small Straight", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that diceset is not a Small Straight
+                        self.buildAlert(context: self)
+                        .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added to Small Straight", Toast.LENGTH_LONG).show()
+                        // game logic if user decide to put 0 there
+                        self.game.scoreBoard.smallStraight.SetToZero()
+                        self.UpdateUI()
+                    }
+                        .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                        .create()
+                        .show()
+                    }
 
                 } else {
                     // message that Small Straight has alreayd been used
                     Toast.makeText(self, "Small Straight has already been used", Toast.LENGTH_SHORT).show()
                 }
-
-            } else {
-                // message that diceset is not a Small Straight
-                buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
-                // game logic if user decide to put 0 there
-                    }
-                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
-                .create()
-                .show()
             }
         }
 
         // Large Straight
         btnLargeStraight.OnClickListener = { (v: View! ) in
 
-            if self.game.rules.IsLargeStraight(diceSet: self.game.diceSet) {
+            if self.game.HowManyRolls > 0 {
 
                 if !self.game.scoreBoard.largeStraight.Used {
 
-                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.LargeStraight, diceSet: self.game.diceSet)
-                    self.btnLargeStraight.Text = "Large Straight: " + Integer.toString(self.game.scoreBoard.largeStraight.Value)
-                    self.UpdateUI()
+                    if self.game.rules.IsLargeStraight(diceSet: self.game.diceSet) {
+
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.LargeStraight, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.largeStraight.Value) + " to Large Straight", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that diceset is not a Large Straight
+                        self.buildAlert(context: self)
+                        .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added to Large Straight", Toast.LENGTH_LONG).show()
+                        // game logic if user decide to put 0 there
+                        self.game.scoreBoard.largeStraight.SetToZero()
+                        self.UpdateUI()
+                    }
+                        .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                        .create()
+                        .show()
+                    }
 
                 } else {
                     // message that Large Straight has already been used
                     Toast.makeText(self, "Large Straight has already been used", Toast.LENGTH_SHORT).show()
                 }
-
-            } else {
-                // message that diceset is not a Large Straight
-                buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
-                // game logic if user decide to put 0 there
-                    }
-                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
-                .create()
-                .show()
             }
         }
 
         // Yaz
         btnYaz.OnClickListener = { (v: View! ) in
 
-            if self.game.rules.IsYaz(diceSet: self.game.diceSet) {
+            if self.game.HowManyRolls > 0 {
 
                 if !self.game.scoreBoard.yaz.Used {
 
-                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Yaz, diceSet: self.game.diceSet)
-                    self.btnYaz.Text = "Yaz: " + Integer.toString(self.game.scoreBoard.yaz.Value)
-                    self.UpdateUI()
+                    if self.game.rules.IsYaz(diceSet: self.game.diceSet) {
+
+                        self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Yaz, diceSet: self.game.diceSet)
+                        self.UpdateUI()
+                        Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.yaz.Value) + " to Yaz", Toast.LENGTH_SHORT).show()
+
+                    } else {
+                        // message that diceset is not a Yaz
+                        self.buildAlert(context: self)
+                        .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added to Yaz", Toast.LENGTH_LONG).show()
+                        // game logic if user decide to put 0 there
+                        self.game.scoreBoard.yaz.SetToZero()
+                        self.UpdateUI()
+                    }
+                        .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
+                        .create()
+                        .show()
+                    }
 
                 } else {
                     // message that Yaz has alreayd been used
                     Toast.makeText(self, "Yaz has already been used", Toast.LENGTH_SHORT).show()
                 }
-
-            } else {
-                // message that diceset is not a Yaz
-                buildAlert(context: self)
-                .setPositiveButton("Yes"){(dialog, which) in Toast.makeText(self, "0 was added", Toast.LENGTH_LONG).show()
-                // game logic if user decide to put 0 there
-                    }
-                .setNegativeButton("Cancel"){(dialog, which) in dialog.cancel()}
-                .create()
-                .show()
             }
         }
 
         // Chance
         btnChance.OnClickListener = { (v: View! ) in
 
-            if !self.game.scoreBoard.chance.Used {
+            if self.game.HowManyRolls > 0 {
 
-                self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Chance, diceSet: self.game.diceSet)
-                self.btnChance.Text = "Chance: " + Integer.toString(self.game.scoreBoard.chance.Value)
-                self.UpdateUI()
+                if !self.game.scoreBoard.chance.Used {
 
-            } else {
-                //message that Chance has already been used
-                Toast.makeText(self, "Chance has already been used", Toast.LENGTH_SHORT).show()
+                    self.game.scoreBoard.SetScore(TypeOfScore: ScoreTypes.Chance, diceSet: self.game.diceSet)
+                    self.UpdateUI()
+                    Toast.makeText(self, "Added " + Integer.toString(self.game.scoreBoard.chance.Value) + " to Chance", Toast.LENGTH_SHORT).show()
+
+                } else {
+                    //message that Chance has already been used
+                    Toast.makeText(self, "Chance has already been used", Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
@@ -389,46 +643,60 @@ public class MainActivity: Activity {
         diceOne.OnClickListener = { (v: View!) in
 
             if self.diceOne.Locked {
-                self.diceOne.Locked = false}  else {
-                    self.diceOne.Locked = true
+                self.diceOne.Locked = false
+            }  else {
+                self.diceOne.Locked = true
             }
-            self.game.diceSet.dice1.Value = self.diceOne.Value
+
+            self.UpdateDiceBorderColor()
         }
 
         // Dice Two
         diceTwo.OnClickListener = { (v: View!) in
 
             if self.diceTwo.Locked {
-                self.diceTwo.Locked = false}  else {
-                    self.diceTwo.Locked = true
+                self.diceTwo.Locked = false
+            }  else {
+                self.diceTwo.Locked = true
             }
+
+            self.UpdateDiceBorderColor()
         }
 
         // Dice Three
         diceThree.OnClickListener = { (v: View!) in
 
             if self.diceThree.Locked {
-                self.diceThree.Locked = false}  else {
-                    self.diceThree.Locked = true
+                self.diceThree.Locked = false
+            }  else {
+                self.diceThree.Locked = true
             }
+
+            self.UpdateDiceBorderColor()
         }
 
        // Dice Four
         diceFour.OnClickListener = { (v: View!) in
 
             if self.diceFour.Locked {
-                self.diceFour.Locked = false}  else {
-                    self.diceFour.Locked = true
+                self.diceFour.Locked = false
+            }  else {
+                self.diceFour.Locked = true
             }
+
+            self.UpdateDiceBorderColor()
         }
 
         // Dice Five
         diceFive.OnClickListener = { (v: View!) in
 
             if self.diceFive.Locked {
-                self.diceFive.Locked = false}  else {
-                    self.diceFive.Locked = true
+                self.diceFive.Locked = false
+            }  else {
+                self.diceFive.Locked = true
             }
+
+            self.UpdateDiceBorderColor()
         }
     }
 

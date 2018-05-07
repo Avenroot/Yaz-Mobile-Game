@@ -197,13 +197,11 @@
 
     <TextView
         android:id="@+id/tvLowerTotal"
-        android:text="Lower Total: 0"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="58dp"
-        android:layout_marginBottom="30dp"
-        android:layout_toRightOf="@+id/tvUpperTotal"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignTop="@+id/tvUpperTotal"
+        android:layout_centerHorizontal="true"
+        android:text="Lower Total: 0" />
 
     <TextView
         android:id="@+id/tvGrandTotal"
@@ -215,5 +213,14 @@
         android:layout_marginBottom="30dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/tvRolls"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="119dp"
+        android:text="Rolls: 0"
+        android:textStyle="bold" />
 
 </RelativeLayout>

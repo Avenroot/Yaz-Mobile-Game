@@ -14,6 +14,12 @@ public class ScoreItem {
 		Used = false
 		Value = 0
 	}
+
+	public func SetToZero() {
+
+		Used = true
+		Value = 0
+	}
 }
 
 public class Scoreboard {
@@ -39,7 +45,7 @@ public class Scoreboard {
 		let rules = Rules()
 		var r = ones.Value + twos.Value + threes.Value + fours.Value + fives.Value + sixes.Value
 
-		if r >= rules.upperBonusValue {
+		if r >= rules.upperValueToGetBonus {
 			r = r + rules.upperBonusValue
 		}
 
@@ -127,5 +133,19 @@ public class Scoreboard {
 		lowerTotal = 0
 		grandTotal = 0
 
+	}
+
+	func IsEndGame() -> Bool {
+
+		if ones.Used && twos.Used && threes.Used && fours.Used && fives.Used && sixes.Used
+			&& threeOfKind.Value && fourOfKind.Used && fullHouse.Used && smallStraight.Value
+			&& largeStraight.Value && yaz.Used && chance.Used {
+
+			return true
+
+		} else {
+
+			return false
+		}
 	}
 }

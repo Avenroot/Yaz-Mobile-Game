@@ -11,11 +11,6 @@ public class DiceSet {
 	var dice4 = Dice()
 	var dice5 = Dice()
 
-//    func IsFinishedRolling() -> Bool {
-
-
-//    }
-
 
 	func HowManyOnes() -> Int {
 		var r = 0
