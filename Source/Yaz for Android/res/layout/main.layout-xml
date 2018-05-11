@@ -185,6 +185,16 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="16dp" />
 
+    <Button
+        android:id="@+id/btnAbout"
+        android:text="About"
+        android:layout_width="66dp"
+        android:layout_height="33dp"
+        android:layout_marginBottom="16dp"
+        android:layout_above="@+id/tvGrandTotal"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="16dp" />
+
     <TextView
         android:id="@+id/tvUpperTotal"
         android:text="Upper Total: 0"
@@ -217,9 +227,10 @@
     <TextView
         android:id="@+id/tvRolls"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="119dp"
+        android:layout_height="18dp"
+        android:layout_below="@id/btnRollDice"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="24dp"
         android:text="Rolls: 0"
         android:textStyle="bold" />
 

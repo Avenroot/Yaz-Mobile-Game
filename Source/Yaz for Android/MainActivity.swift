@@ -32,6 +32,8 @@ public class MainActivity: Activity {
     var btnYaz: Button { return findViewById(R.id.btnYaz) as! Button }
     var btnChance: Button { return findViewById(R.id.btnChance) as! Button }
 
+    var btnAbout: Button {return findViewById(R.id.btnAbout) as! Button}
+
     var btnRollDice: Button { return findViewById(R.id.btnRollDice) as! Button }
     var tvRolls: TextView { return findViewById(R.id.tvRolls) as! TextView }
 
@@ -639,6 +641,10 @@ public class MainActivity: Activity {
             }
         }
 
+        btnAbout.OnClickListener = { (v:View!) in
+            self.aboutAlert(context: self).show()
+        }
+
         // Dice One
         diceOne.OnClickListener = { (v: View!) in
 
@@ -699,6 +705,17 @@ public class MainActivity: Activity {
             self.UpdateDiceBorderColor()
         }
     }
+
+    private func aboutAlert(context: Context) -> AlertDialog{
+        return AlertDialog
+        .Builder(context)
+        .setTitle("YAZ")
+        //.setIcon(R.drawable.fireside) // cant add fireside.png dont know why
+        .setMessage(R.string.about_game)
+        .setNeutralButton("OK"){(dialog, which) in dialog.cancel()}
+        .setCancelable(true)
+        .create()
+}
 
     private func buildAlert(context : Context) -> AlertDialog.Builder {
         return AlertDialog
